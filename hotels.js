@@ -15,9 +15,21 @@ class Hotel {
   };
 }
 
-let hotel1 = new Hotel("Boavista", "Rue du Solei", "htpp://google.com");
-let hotel2 = new Hotel("Marriot", "Reagents Park", "");
-let hotel3 = new Hotel("Marriot", "Reagents Park", "");
+let hotel1 = new Hotel(
+  "Grand Hotel",
+  "Vienna",
+  "https://thumbnails.trvl-media.com/eqOrHTgHL7blub7013x9X1qKMOE=/773x530/smart/filters:quality(60)/images.trvl-media.com/hotels/1000000/30000/23700/23687/1266f429_z.jpg"
+);
+let hotel2 = new Hotel(
+  "Marriot",
+  "Reagents Park",
+  "https://www.marriott.com/marriottassets/marriott/LONRP/lonrp-exterior-0125-hor-clsc.jpg"
+);
+let hotel3 = new Hotel(
+  "Hilton",
+  "Budapesta",
+  "https://www.hiltonhotels.de/assets/img/hotels/BUDWEHI_Hilton_Budapest_City/preview-hotelext001-thumb-1.jpg"
+);
 
 let hotelArray = [hotel1, hotel2, hotel3];
 
@@ -39,17 +51,23 @@ for (let i = 0; i < hotelArray.length; i++) {
   let addressP = document.createElement("p");
   addressP.textContent = hotelArray[i].address;
   let nightsP = document.createElement("p");
-  nightsP.textContent = hotelArray[i].numberOfNights;
+  nightsP.textContent = hotelArray[i].numberOfNights + " available nights";
   data.appendChild(nameP);
-  data.appendChild(nightsP);
   data.appendChild(addressP);
+  data.appendChild(nightsP);
+  //creating the availability div
+  let availability = document.createElement("div");
+  availability.classList.add("availability");
+  let availabilityP = document.createElement("p");
+  availabilityP.textContent = hotelArray[i].showAvailability();
+  availability.appendChild(availabilityP);
   //apending child nodes to parent node
   parent.appendChild(imageCompartiment);
   parent.appendChild(data);
+  parent.appendChild(availability);
   console.log(parent);
 
   //APENDING EACH PARENT TO THE DOM
   let page = document.getElementsByTagName("main")[0];
   page.appendChild(parent);
-  console.log(page);
 }
