@@ -1,4 +1,6 @@
+//prompt to find out how many nights want the guests to spend in the hotel
 let nights = prompt("How may nights would you like to stay");
+
 class Hotel {
   constructor(hotel, address, imageUrl) {
     this.hotelName = hotel;
@@ -9,6 +11,7 @@ class Hotel {
   showAvailability = function () {
     if (Number(nights) <= this.numberOfNights) {
       let button = document.createElement("button");
+      button.classList.add("btn");
       button.textContent = "I'll reserve";
       return button;
     } else {
@@ -19,6 +22,7 @@ class Hotel {
   };
 }
 
+//Creating each hotel
 let hotel1 = new Hotel(
   "Grand Hotel",
   "Vienna",
@@ -63,6 +67,7 @@ for (let i = 0; i < hotelArray.length; i++) {
   //creating the availability div
   let availability = document.createElement("div");
   availability.classList.add("availability");
+  availability.setAttribute("style", "margin: 0 auto");
   availability.appendChild(hotelArray[i].showAvailability());
   //apending child nodes to parent node
   parent.appendChild(imageCompartiment);
