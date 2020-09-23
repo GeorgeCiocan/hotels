@@ -67,7 +67,6 @@ for (let i = 0; i < hotelArray.length; i++) {
   //creating the availability div
   let availability = document.createElement("div");
   availability.classList.add("availability");
-  availability.setAttribute("style", "margin: 0 auto");
   availability.appendChild(hotelArray[i].showAvailability());
   //apending child nodes to parent node
   parent.appendChild(imageCompartiment);

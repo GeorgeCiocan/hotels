@@ -80,6 +80,10 @@ button {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
+  margin: 0 auto;
+}
+
+.availability p {
   text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
