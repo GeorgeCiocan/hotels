@@ -8,9 +8,13 @@ class Hotel {
   }
   showAvailability = function () {
     if (Number(nights) <= this.numberOfNights) {
-      return "I'll reserve";
+      let button = document.createElement("button");
+      button.textContent = "I'll reserve";
+      return button;
     } else {
-      return `Sorry, no available nights for ${this.hotelName}.`;
+      let message = document.createElement("p");
+      message.textContent = `Sorry, no available nights for ${this.hotelName}.`;
+      return message;
     }
   };
 }
@@ -35,6 +39,7 @@ let hotelArray = [hotel1, hotel2, hotel3];
 
 //display logic
 for (let i = 0; i < hotelArray.length; i++) {
+  //creating the parent of each hotel
   let parent = document.createElement("div");
   parent.classList.add("column");
   //creating the image div
@@ -58,9 +63,7 @@ for (let i = 0; i < hotelArray.length; i++) {
   //creating the availability div
   let availability = document.createElement("div");
   availability.classList.add("availability");
-  let availabilityP = document.createElement("p");
-  availabilityP.textContent = hotelArray[i].showAvailability();
-  availability.appendChild(availabilityP);
+  availability.appendChild(hotelArray[i].showAvailability());
   //apending child nodes to parent node
   parent.appendChild(imageCompartiment);
   parent.appendChild(data);
